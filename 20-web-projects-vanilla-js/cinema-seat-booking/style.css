@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald&display=swap');
+
+@import url('https://fonts.googleapis.com/css?family=Dosis&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 10px;
+    --neon-cinema-text-color: #3bceff;
+    --neon-cinema-box-color: #ff4fd3
+}
+
+body {
+    background: url(wall.jpeg) center fixed;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center ;
+    min-height: 100vh;
+    margin: 0;
+    perspective: 100rem;
+}
+
+h1 {
+    color: #fff;
+    border: .3rem solid #fff ;
+    border-radius: 1rem;
+    padding: 2rem 2rem;
+    font-family: 'Dosis', sans-serif;
+    font-size: 10vh;
+    text-transform: uppercase;
+    animation: neon 1.5s infinite alternate;
+
+}
+
+.movie-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80vh;
+    font-size: 2rem;
+    font-family: 'Dosis', sans-serif;
+}
+
+.movie-container select {
+    cursor: pointer;
+    width: 80%;
+    height: 10rem;
+    background-color: snow;
+    font-size: 2rem;
+    font-family: 'Oswald', sans-serif;
+    text-align-last: center;
+    border-radius: .5rem;
+    padding: .5rem 2rem;
+    transform: rotateX(-45deg);
+    box-shadow: 0 .5rem 1.5rem #fff ;
+}
+
+.room-container {
+    transform: rotateX(45deg);
+    width: 80%;
+}
+.showcase {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    background-color: lightblue;
+    list-style-type: none;
+    transform: rotateX(45deg);
+}
+
+.showcase li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.showcase small {
+    margin-left: .2rem;
+}
+
+.row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.seat {
+    background-color: cornflowerblue;
+    margin: .4rem;
+    width: 3rem;
+    height: 3rem;
+    border: .2rem solid black;
+    border-radius: 1rem 1rem 0 0;
+}
+
+.seat.select {
+    background-color: var(--neon-cinema-text-color);
+}
+
+.seat.occupied {
+    background-color: grey;
+}
+
+.seat:nth-of-type(2) {
+    margin-right: 2rem;
+}
+
+.seat:nth-last-of-type(2) {
+    margin-left: 2rem;
+}
+
+.seat:not(.occupied):hover {
+    cursor: pointer;
+    transform: scale(1.5);
+}
+
+.showcase .seat:not(.occupied):hover  {
+    cursor: default;
+    transform: scale(1);
+}
+
+@keyframes neon {
+
+    0%, 19%, 21%, 23%, 25%, 50%, 59%, 100% {
+
+        text-shadow: -0.1rem -0.1rem 1rem #fff,
+        0.1rem 0.1rem 1rem #fff,
+        0 0 2rem var(--neon-cinema-text-color),
+        0 0 4rem var(--neon-cinema-text-color),
+        0 0 6rem var(--neon-cinema-text-color),
+        0 0 8rem var(--neon-cinema-text-color),
+        0 0 10rem var(--neon-cinema-text-color);
+
+        box-shadow: 0 0 .5rem #fff,
+        0 0 .5rem inset,
+        0 0 1rem inset var(--neon-cinema-box-color),
+        0 0 2rem inset var(--neon-cinema-box-color),
+        0 0 1rem var(--neon-cinema-box-color),
+        0 0 2rem var(--neon-cinema-box-color);
+    }
+
+    27%, 29%, 57% {
+        text-shadow: none;
+        box-shadow: none;
+    }
+}
+
+@media (min-width: 0px) and (max-width: 500px) {
+    :root {
+        --neon-cinema-text-color: #3bceff;
+        --neon-cinema-box-color: #ff4fd3
+    } 
+
+    .movie-container {
+        width: 300px;
+    }
+}
